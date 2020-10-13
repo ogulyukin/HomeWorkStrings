@@ -6,15 +6,11 @@
 #define HW01_FUNCTIONS_H
 
 #endif //HW01_FUNCTIONS_H
-void InputLine(char str[], int n);
-void UpperCase(char str[]);
-void LowerCase(char str[]);
-void Capitalize(char str[]);
-void Shrink(char str[]);
+void Dec2Bin(int decimal);
+double Bin2Dec(char binary[]);
+void Dec2Hex(int decimal);
+int Hex2Dec(char hex[]);
 int GetLen(const char str[]);
-bool isPalindrome(char str[]);
-bool isNumber(char str[]);
-int toNumber(char str[]);
-double toNumberEq(char str[]);
-int ifDouble(const char str[]);
-void DeletePoint(char str[]);
+int GetChoise();
+bool isBinary(char str[]);
+void PrintMenu();

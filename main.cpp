@@ -1,6 +1,5 @@
 /* Гулюкин О.В.
- * Это вариант для работы с латинскими символами, в UTF-8 кириллица кодируется двумя байтами и не влезает
- * в тип данных char. В другой ветке попробую решить эту проблему.
+ *
  */
 #include <iostream>
 #include "functions.cpp"
@@ -9,41 +8,35 @@ using namespace std;
 
 int main() {
     setlocale(LC_ALL,"ru");
+    cout << "Программа переводит числа из одной системы счисления в другую."  << endl;
+    PrintMenu();
+    int choise;
     const int n = 256;
-    bool result;
-    double resultNumber;
-    char str[n];
-    cout << "This program is show how strings can work! It can work only with Latin symbols!!!" << endl;
-    cout << "You may exit by press enter in any time." << endl;
-    InputLine(str, n);
-    while(str[0] != 0){
-        cout << "Making all CAPS symbols:" << endl;
-        UpperCase(str);
-        cout << "Now lets lower them all:" << endl;
-        LowerCase(str);
-        result = isPalindrome(str);
-        if(!result){
-            cout << "String is NOT a Palidrome!" << endl;
+    char binary[n];
+    double decResult;
+    bool check;
+    choise = GetChoise();
+    while (choise){
+        if (!choise){
+            return 0;
+        }else if (choise == 1){
+            cout << "Введите десятичное число : "; cin >> decResult;
+            Dec2Bin(decResult);
+        }else if (choise == 2){
+                cout << "Введите двоичное число : " << endl;
+                cin >> binary;
+                check = isBinary(binary);
+                if (!check)
+                    cout << "введено не двоичное число!" << endl;
+            decResult = Bin2Dec(binary);
+            cout << "Перевдим число в десятичное : " << decResult << endl;
+        }else if (choise == 3){
+
         }else{
-            cout << "String IS a Palidrome!" << endl;
+
         }
-        cout << "Not let the first Symbol become UP!" << endl;
-        Capitalize(str);
-        Shrink(str);
-        cout << "Deleting spaces if present:" << endl;
-        cout << str << endl;
-        result = isNumber(str);
-        if(!result){
-            cout << "String is not a Number!!!" << endl;
-            resultNumber = toNumber(str);
-            cout << "String to number result is : " << resultNumber << endl;
-        }else{
-            cout << "String is a Number!!!" << endl;
-            resultNumber = toNumberEq(str);
-            cout << "Converting it to Number : " << resultNumber << endl;
-        }
-        str[0] = 0;
-        InputLine(str, n);
+        PrintMenu();
+        choise = GetChoise();
     }
     return 0;
 }
