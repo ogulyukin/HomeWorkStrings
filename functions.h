@@ -18,3 +18,6 @@ int toNumber(char str[]);
 double toNumberEq(char str[]);
 int ifDouble(const char str[]);
 void DeletePoint(char str[]);
+bool isCyrillick(char symbol);
+void UpperCaseCyr(char str[], int index);
+void LowerCaseCyr(char str[], int index);
