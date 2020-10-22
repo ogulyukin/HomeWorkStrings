@@ -1,36 +1,28 @@
 /* Гулюкин О.В.
- * Есть файл "202center.txt", из него нужно сделать файл типа 202.dhcpd.
+ * Написать рекурсивную функцию Power, которая возводит указанное число, в указанную степень. Основание и показатель
+ * степени вводятся с клавиатуры;
  */
 #include <iostream>
-#include <fstream>
+#include "math.h"
 using namespace std;
+int Power(int iNumber, int iIndex);
 int main() {
     setlocale(LC_ALL,"ru");
-    ifstream file;
-    file.open("202center.txt");
-    if (!file.is_open()){
-        cout << "Ошибка открытия файла!!!" << endl;
-        return 10;
-    }
-    ofstream resFile;
-    resFile.open("202.dhcpd");
-    if (!resFile.is_open()){
-        cout << "Ошибка записи в файл!!!" << endl;
-        return 15;
-    }
-    char aIpAdress[16];
-    char aMacAdress[18];
-    int iCount = 1;
-    while(!file.eof()){
-        file >> aIpAdress;
-        file >> aMacAdress;
-        resFile << "host 202-" << iCount << endl;
-        resFile << "{" << endl;
-        resFile << "\t" << "hardware ethernet" << "\t" << aMacAdress << ";" << endl;
-        resFile << "\t" << "fixed-address" << "\t\t" << aIpAdress << ";" << endl;
-        resFile << "}" << endl << endl;
-        iCount++;
-    }
-    file.close();
+    int iNumber, iIndex;
+    cout  << "Программа возводить в степень лубое целое число"  << endl;
+    cout << "Введите основание : "; cin >> iNumber;
+    cout << "Введите степень : "; cin >> iIndex;
+    cout << "Проверка  pow : " << pow(iNumber, iIndex) << endl;
+    cout << "Результат : " << Power(iNumber, iIndex) << endl;
     return 0;
+}
+int Power(int iNumber, int iIndex){
+    //cout << "iIndex = " << iIndex << "\t";
+    if (iIndex == 0)
+        return 1;
+    if (iIndex == 1)
+        return iNumber;
+    int result = iNumber * Power(iNumber, iIndex - 1);
+    //cout << "result = " << result << endl;
+    return result;
 }
