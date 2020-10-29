@@ -1,28 +1,28 @@
 /* Гулюкин О.В.
- * Написать рекурсивную функцию Power, которая возводит указанное число, в указанную степень. Основание и показатель
- * степени вводятся с клавиатуры;
+ * Написать рекурсивную функцию которая выводит на экран числа Фибоначчи до указанного предела.
  */
 #include <iostream>
-#include "math.h"
+
 using namespace std;
-int Power(int iNumber, int iIndex);
+int CalcFibonachi(int iNumber);
+void ShowArray( int array[], int size);
 int main() {
     setlocale(LC_ALL,"ru");
-    int iNumber, iIndex;
-    cout  << "Программа возводить в степень лубое целое число"  << endl;
-    cout << "Введите основание : "; cin >> iNumber;
-    cout << "Введите степень : "; cin >> iIndex;
-    cout << "Проверка  pow : " << pow(iNumber, iIndex) << endl;
-    cout << "Результат : " << Power(iNumber, iIndex) << endl;
+    int iNumber;
+    cout  << "Программа выводит числа фибоначи до указанного предела."  << endl;
+    cout << "Введите предел вывода : "; cin >> iNumber;
+    for (int i = 0; i <= iNumber; i++){
+        cout  << CalcFibonachi(i) << "\t";
+    }
     return 0;
 }
-int Power(int iNumber, int iIndex){
-    //cout << "iIndex = " << iIndex << "\t";
-    if (iIndex == 0)
+int CalcFibonachi(int iNumber) {
+
+    if (iNumber == 1){
         return 1;
-    if (iIndex == 1)
-        return iNumber;
-    int result = iNumber * Power(iNumber, iIndex - 1);
-    //cout << "result = " << result << endl;
-    return result;
+    }else if(iNumber == 0){
+        return 0;
+    }else{
+        return (CalcFibonachi(iNumber - 1) + CalcFibonachi(iNumber -2));
+    }
 }
