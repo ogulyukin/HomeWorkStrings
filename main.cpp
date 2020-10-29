@@ -9,8 +9,8 @@ void ShowArray( int array[], int size);
 int main() {
     setlocale(LC_ALL,"ru");
     int iNumber;
-    cout  << "Программа выводит числа фибоначи до указанного предела."  << endl;
-    cout << "Введите предел вывода : "; cin >> iNumber;
+    cout  << "Программа выводит числа указанное количество чисел фибоначчи "  << endl;
+    cout << "Введите количество чисел : "; cin >> iNumber;
     for (int i = 0; i < iNumber; i++){
         cout  << CalcFibonachi(i) << "\t";
     }
