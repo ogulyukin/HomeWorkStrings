@@ -5,14 +5,15 @@
 
 using namespace std;
 int CalcFibonachi(int iNumber);
-void ShowArray( int array[], int size);
 int main() {
     setlocale(LC_ALL,"ru");
     int iNumber;
-    cout  << "Программа выводит числа указанное количество чисел фибоначчи "  << endl;
-    cout << "Введите количество чисел : "; cin >> iNumber;
-    for (int i = 0; i < iNumber; i++){
-        cout  << CalcFibonachi(i) << "\t";
+    int iResult = 0;
+    cout  << "Программа выводит числа фибоначчи до указанного предела : "  << endl;
+    cout << "Введите предел чисел : "; cin >> iNumber;
+    for (int i = 1; iResult < iNumber; i++){
+        cout  << iResult << "\t";
+        iResult = CalcFibonachi(i);
     }
     return 0;
 }
