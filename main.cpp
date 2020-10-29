@@ -11,7 +11,7 @@ int main() {
     int iNumber;
     cout  << "Программа выводит числа фибоначи до указанного предела."  << endl;
     cout << "Введите предел вывода : "; cin >> iNumber;
-    for (int i = 0; i <= iNumber; i++){
+    for (int i = 0; i < iNumber; i++){
         cout  << CalcFibonachi(i) << "\t";
     }
     return 0;
