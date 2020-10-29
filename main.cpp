@@ -5,7 +5,6 @@
 
 using namespace std;
 int CalcFibonachi(int iNumber);
-void ShowArray( int array[], int size);
 int main() {
     setlocale(LC_ALL,"ru");
     int iNumber;
