@@ -7,18 +7,18 @@ using namespace std;
 int CalcFibonachi(int iNumber);
 int main() {
     setlocale(LC_ALL,"ru");
-    int iNumber;
+    int iNumber, iIndex = 0;
     int iResult = 0;
     cout  << "Программа выводит числа фибоначчи до указанного предела : "  << endl;
     cout << "Введите предел чисел : "; cin >> iNumber;
-    for (int i = 1; iResult < iNumber; i++){
+    while(iResult < iNumber){
         cout  << iResult << "\t";
-        iResult = CalcFibonachi(i);
+        iResult = CalcFibonachi(iIndex);
+        iIndex++;
     }
     return 0;
 }
 int CalcFibonachi(int iNumber) {
-
     if (iNumber == 1){
         return 1;
     }else if(iNumber == 0){
